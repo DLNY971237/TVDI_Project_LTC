@@ -20,18 +20,18 @@ df = df.dropna(subset=['縣市', '行政區'])
 
 # 建立 Dash layout，並添加背景色和下拉式選單的顏色
 app.layout = html.Div(
-    style={'backgroundColor': '#FFB266', 'padding': '20px'},
+    style={'backgroundColor': '#FFCCCC', 'padding': '20px'},
     children=[
         html.H1("長照機構資訊", style={'textAlign': 'center'}),
         dcc.Dropdown(
             id='city-dropdown',
             options=[{'label': city, 'value': city} for city in df['縣市'].unique()],
             value=df['縣市'].unique()[0] if len(df['縣市'].unique()) > 0 else None,
-            style={'marginBottom': '20px', 'backgroundColor': '#CCCC00','textAlign': 'center' }
+            style={'marginBottom': '20px', 'backgroundColor': '#FFFFCC','textAlign': 'center' }
         ),
         dcc.Dropdown(
             id='area-dropdown',
-            style={'marginBottom': '20px', 'backgroundColor': '#CCCC00','textAlign': 'center' }
+            style={'marginBottom': '20px', 'backgroundColor': '#FFFFCC','textAlign': 'center' }
         ),
         dash_table.DataTable(
             id='institution-table',
